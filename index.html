@@ -5,10 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Analog and Digital Clock</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Custom styles */
+    /* Import Google font - Poppins */
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
     * {
       margin: 0;
@@ -23,6 +21,10 @@
       --red-color: #e74c3c;
     }
     body {
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
       background: var(--primary-color);
       position: relative;
     }
@@ -37,12 +39,11 @@
       flex-direction: column;
       align-items: center;
       gap: 60px;
-      margin-top: 40px;
     }
     .clock {
       display: flex;
-      height: 300px;
-      width: 300px;
+      height: 400px;
+      width: 400px;
       border-radius: 50%;
       align-items: center;
       justify-content: center;
@@ -58,7 +59,7 @@
     }
     .clock label span {
       display: inline-block;
-      font-size: 20px;
+      font-size: 30px;
       font-weight: 600;
       color: var(--black-color);
       transform: rotate(calc(var(--i) * (-360deg / 12)));
@@ -114,7 +115,7 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      font-size: 18px;
+      font-size: 24px;
       font-weight: bold;
       color: var(--black-color);
       background: var(--white-color);
@@ -122,26 +123,15 @@
       border-radius: 10px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
-    .text-title {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-size: 24px;
-      font-weight: bold;
-      color: var(--black-color);
-    }
-    @media (max-width: 767px) {
-      .clock {
-        height: 250px;
-        width: 250px;
-      }
-      .digital-time {
-        font-size: 16px;
-      }
-      .text-title {
-        font-size: 20px;
-      }
-    }
+  .text-title {
+    position: absolute; /* Make it absolute to position it relative to the body */
+    top: 10px;          /* Distance from the top */
+    left: 10px;         /* Distance from the left */
+    font-size: 24px;    /* Adjust font size */
+    font-weight: bold;  /* Make the text bold */
+    color: var(--black-color); /* Use the primary color for text */
+  }
+
   </style>
 </head>
 <body>
@@ -169,12 +159,6 @@
     </div>
     <div class="mode-switch">Dark Mode</div>
   </div>
-
-  <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
   <script>
     // Add suffix to the day (st, nd, rd, th)
     function getDaySuffix(day) {
